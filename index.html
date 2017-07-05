@@ -15,11 +15,31 @@
 		background-image: URL(http://static.skaip.org/img/emoticons/180x180/f6fcff/sun.gif);
 		border: 5px dashed purple;
 		padding:60px;
+		
+		font-size: 35px;
+		font-family: Comic Sans MS;
+		font-weight: bold;
 		}
 
 		body{
 		background-color: #fff7db;
 		}
+		
+		input[type="checkbox"]:required:invalid + label { color: red; }
+
+		input[type="text"]:required:invalid, input:focus:invalid {
+			background-image: url(http://i.imgur.com/jNaPUbE.png);
+			background-position: right top;
+			background-repeat: no-repeat;
+		}
+
+		input[type="password"]:required:invalid, input:focus:invalid {
+			background-image: url(http://i.imgur.com/jNaPUbE.png);
+			background-position: right top;
+			background-repeat: no-repeat;
+		}		
+		
+		
 		
 	</style>
   
@@ -27,18 +47,18 @@
 
   <body>
 
-<div class="welcome"><b><font size="30">Welcome.</font></b></div>
+<div class="welcome">Welcome.</div>
 
 	<h3>Fill out form below:</h3>
 
     <form action="https://cp1999.github.io/party1999/" method="get">
 
 
-      Name : <input type="text"/>
+      Name : <input type="text" required oninvalid="this.setCustomValidity('u better enter this')"/>
 
       <br><br>
 
-      Favorite Color : <input type="text" />
+      Favorite Color : <input type="text" required oninvalid="this.setCustomValidity('cmon man')"/>
 
       <br><br>
 
@@ -46,11 +66,12 @@
       <input type="radio" name ="Pick One"/> Giraffe
       <p class="tab"><input type="radio" name ="Pick One"/> Hippopotamus </p>	  
 	  
-      *Password: <input type ="password" />
+      *Password: <input type ="password" required oninvalid="this.setCustomValidity('really now')"/>
 
       <br><br>
 	  
-      <input type="checkbox" required oninvalid="this.setCustomValidity('How Dare You')" /> Agree that giraffes are not not better than hippos
+      <input id="red" type="checkbox" required oninvalid="this.setCustomValidity('How Dare You')" />
+	  <label for="red">Agree that giraffes are not not better than hippos</label>
 
       <br><br>	  
 
